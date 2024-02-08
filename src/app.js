@@ -18,4 +18,5 @@ app.get('/', (req, res) => {
 app.listen(process.env.PORT, async () => {
     console.log(`Server is running on port ${process.env.PORT}`)
     await sequelize.authenticate();
+    // await sequelize.sync(); // sync all models with the database
 });

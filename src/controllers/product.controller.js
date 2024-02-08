@@ -1,15 +1,25 @@
 const Product = require("../models/product.model");
+const products = require("../json/products.json");
+
+// initDB function is used to initialize the database with the products
+
+exports.initDB = (req, res) => {
+  Product.bulkCreate(products, { validate: true })
+    .then(() => res.json({ success: true }))
+    .catch((err) => res.status(400).json(err));
+};
 
 // createProduct function is used to create a new product and return the created product
 exports.createProduct = (req, res) => {
   const { product } = req.body;
+
   Product.create({
     name: product.name,
     description: product.description,
     active: product.active,
     thumbnail: product.thumbnail,
     price: product.price,
-    quantityInStock: product.quantityInStock,
+    quantityInStock: product.quantityInStock || 0,
   })
     .then((product) => res.json({ product, success: true }))
     .catch((err) => res.status(400).json(err));
@@ -45,7 +55,7 @@ exports.updateProduct = (req, res) => {
     },
     { where: { id } }
   )
-    .then((product) => res.json({ success: true, product }))
+    .then((product) => res.json({ success: true }))
     .catch((err) => res.status(400).json(err));
 };
 
