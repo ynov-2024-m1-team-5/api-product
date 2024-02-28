@@ -124,7 +124,7 @@ router.get('/all/active', productController.getActiveProducts);
     *             product:
     *               $ref: '#/components/schemas/Product'
  */
-router.get('/{id}', productController.getProductById);
+router.get('/:id', productController.getProductById);
 
 /**
  * @openapi
@@ -171,7 +171,7 @@ router.get('/{id}', productController.getProductById);
     *             product:
     *               $ref: '#/components/schemas/Product'
  */
-router.put('/{id}', productController.updateProduct);
+router.put('/:id', productController.updateProduct);
 
 /**
  * @openapi
@@ -197,6 +197,6 @@ router.put('/{id}', productController.updateProduct);
     *             success:
     *               type: boolean
  */
-router.delete('/{id}', productController.deleteProduct);
+router.delete('/:id', productController.deleteProduct);
 
 module.exports = router;
