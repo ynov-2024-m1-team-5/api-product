@@ -5,9 +5,9 @@ Cette API gère les produits de notre application.
 
 ## Endpoints
 
-Base URL: `http://localhost/api/v1`.
+Base URL: `https://api-product-ocdd.onrender.com`.
 
-Swagger: `http://localhost/api/v1/docs`.
+Swagger: `https://api-product-ocdd.onrender.com/api/v1/docs`.
 
 ### POST /poducts/init
 Initialise la base de données avec des produits
